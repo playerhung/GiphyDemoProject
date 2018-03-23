@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Comment" representedClassName="Comment" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="key" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gif" inverseName="comments" inverseEntity="Gif" syncable="YES"/>
+    </entity>
+    <entity name="Gif" representedClassName="Gif" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="key" attributeType="String" syncable="YES"/>
+        <attribute name="like" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="relationship" inverseEntity="Comment" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comment" positionX="-290" positionY="72" width="128" height="118"/>
+        <element name="Gif" positionX="-56" positionY="239" width="128" height="148"/>
+    </elements>
+</model>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="unit1" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="saQ-CY-7rO" id="XfV-N1-HsH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwI-tO-C4g">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-Bm-WqD" userLabel="Content">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
+                            <subviews>
+                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="applelogo" translatesAutoresizingMaskIntoConstraints="NO" id="saQ-CY-7rO">
+                                    <rect key="frame" x="65" y="0.0" width="245" height="300"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="t99-Qd-WUN" appends="YES" id="a7I-PC-BQj"/>
+                                    </connections>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytM-TM-ABq">
+                                    <rect key="frame" x="77" y="350" width="221" height="30"/>
+                                    <state key="normal" title="TableViewController"/>
+                                    <connections>
+                                        <action selector="clickToOpenTableView:" destination="-1" eventType="touchUpInside" id="WjP-xL-hhY"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MT-4D-SmA">
+                                    <rect key="frame" x="137" y="430" width="101" height="30"/>
+                                    <state key="normal" title="CollectionView"/>
+                                    <connections>
+                                        <action selector="openCollection:" destination="-1" eventType="touchUpInside" id="vQ9-p7-TJw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seR-QQ-p2B">
+                                    <rect key="frame" x="144" y="470" width="87" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="87" id="u3h-lp-Wle"/>
+                                    </constraints>
+                                    <state key="normal" title="Autolayout"/>
+                                    <connections>
+                                        <action selector="openAutolayout:" destination="-1" eventType="touchUpInside" id="ikm-0u-oOw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOF-dg-XVS">
+                                    <rect key="frame" x="164" y="310" width="48" height="30"/>
+                                    <state key="normal" title="TabBar"/>
+                                    <connections>
+                                        <action selector="openTabbar:" destination="-1" eventType="touchUpInside" id="okh-uK-VtN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1e-Pu-1X8">
+                                    <rect key="frame" x="137" y="390" width="102" height="30"/>
+                                    <state key="normal" title="Giphy Timeline"/>
+                                    <connections>
+                                        <action selector="setAction:" destination="-1" eventType="touchUpInside" id="miF-76-Yas"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="D1e-Pu-1X8" firstAttribute="centerX" secondItem="fR2-Bm-WqD" secondAttribute="centerX" id="5bc-78-HQp"/>
+                                <constraint firstItem="2MT-4D-SmA" firstAttribute="centerX" secondItem="fR2-Bm-WqD" secondAttribute="centerX" id="84b-Mo-sra"/>
+                                <constraint firstItem="saQ-CY-7rO" firstAttribute="centerX" secondItem="fR2-Bm-WqD" secondAttribute="centerX" id="CIj-Ju-mui"/>
+                                <constraint firstItem="saQ-CY-7rO" firstAttribute="top" secondItem="fR2-Bm-WqD" secondAttribute="top" id="DkN-aj-yaQ"/>
+                                <constraint firstItem="D1e-Pu-1X8" firstAttribute="top" secondItem="ytM-TM-ABq" secondAttribute="bottom" constant="10" id="FrA-EN-UVI"/>
+                                <constraint firstItem="ytM-TM-ABq" firstAttribute="top" secondItem="JOF-dg-XVS" secondAttribute="bottom" constant="10" id="Ihx-xN-aBx"/>
+                                <constraint firstItem="ytM-TM-ABq" firstAttribute="leading" secondItem="fR2-Bm-WqD" secondAttribute="leading" constant="77" id="Jv7-mk-KDx"/>
+                                <constraint firstItem="seR-QQ-p2B" firstAttribute="top" secondItem="2MT-4D-SmA" secondAttribute="bottom" constant="10" id="Lfo-4l-bxJ"/>
+                                <constraint firstAttribute="bottom" secondItem="seR-QQ-p2B" secondAttribute="bottom" priority="200" constant="40" id="Nrm-43-bmf"/>
+                                <constraint firstItem="2MT-4D-SmA" firstAttribute="top" secondItem="D1e-Pu-1X8" secondAttribute="bottom" constant="10" id="Sms-tf-Gf8"/>
+                                <constraint firstItem="seR-QQ-p2B" firstAttribute="centerX" secondItem="fR2-Bm-WqD" secondAttribute="centerX" id="mCb-HP-MLh"/>
+                                <constraint firstItem="JOF-dg-XVS" firstAttribute="centerX" secondItem="fR2-Bm-WqD" secondAttribute="centerX" id="rTl-0W-gZR"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="547" id="rgI-Ny-akX"/>
+                                <constraint firstItem="ytM-TM-ABq" firstAttribute="centerX" secondItem="JOF-dg-XVS" secondAttribute="centerX" id="vei-CI-ak0"/>
+                                <constraint firstItem="JOF-dg-XVS" firstAttribute="top" secondItem="saQ-CY-7rO" secondAttribute="bottom" constant="10" id="wrP-ch-bhw"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="fR2-Bm-WqD" firstAttribute="top" secondItem="WwI-tO-C4g" secondAttribute="top" id="89R-W7-aS5"/>
+                        <constraint firstAttribute="trailing" secondItem="fR2-Bm-WqD" secondAttribute="trailing" id="dI7-QZ-CSM"/>
+                        <constraint firstItem="fR2-Bm-WqD" firstAttribute="leading" secondItem="WwI-tO-C4g" secondAttribute="leading" id="j6i-VX-6nF"/>
+                        <constraint firstAttribute="bottom" secondItem="fR2-Bm-WqD" secondAttribute="bottom" id="x2I-Cm-q11"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WwI-tO-C4g" secondAttribute="bottom" id="CAX-Pe-JEj"/>
+                <constraint firstItem="fR2-Bm-WqD" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="RA8-cZ-xuj"/>
+                <constraint firstItem="WwI-tO-C4g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cgx-m0-ygF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WwI-tO-C4g" secondAttribute="trailing" id="eDs-6a-Bzm"/>
+                <constraint firstItem="WwI-tO-C4g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="y5S-OH-liE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+        <tapGestureRecognizer id="t99-Qd-WUN">
+            <connections>
+                <action selector="actionTap:" destination="-1" id="mMo-w5-yWF"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="applelogo" width="245" height="300"/>
+    </resources>
+</document>
