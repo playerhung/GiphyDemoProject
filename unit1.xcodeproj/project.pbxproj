@@ -15,7 +15,6 @@
 		E9381D80204D210200179BF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9381D7E204D210200179BF2 /* LaunchScreen.storyboard */; };
 		E9381D8B204D210200179BF2 /* unit1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9381D8A204D210200179BF2 /* unit1Tests.swift */; };
 		E9381D96204D210200179BF2 /* unit1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9381D95204D210200179BF2 /* unit1UITests.swift */; };
-		E93ECBE1205F5148007FD30D /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECBE0205F5148007FD30D /* iOSDevCenters+GIF.swift */; };
 		E93ECBE4205F9552007FD30D /* GiphyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECBE2205F9552007FD30D /* GiphyTableViewCell.swift */; };
 		E93ECBE5205F9552007FD30D /* GiphyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93ECBE3205F9552007FD30D /* GiphyTableViewCell.xib */; };
 		E93ECBE8205F9867007FD30D /* GiphyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECBE6205F9867007FD30D /* GiphyDetailViewController.swift */; };
@@ -44,6 +43,7 @@
 		E9B8A9202051390300586E5B /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B8A91E2051390300586E5B /* CollectionViewController.xib */; };
 		E9B8A92320513A1100586E5B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8A92120513A1100586E5B /* CollectionViewCell.swift */; };
 		E9B8A92420513A1100586E5B /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B8A92220513A1100586E5B /* CollectionViewCell.xib */; };
+		E9BA00422068869D003508EC /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA00412068869D003508EC /* iOSDevCenters+GIF.swift */; };
 		E9D028A62064AA43000506CE /* Comment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D028A22064AA43000506CE /* Comment+CoreDataClass.swift */; };
 		E9D028A72064AA43000506CE /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D028A32064AA43000506CE /* Comment+CoreDataProperties.swift */; };
 		E9D028A82064AA43000506CE /* Gif+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D028A42064AA43000506CE /* Gif+CoreDataClass.swift */; };
@@ -88,7 +88,6 @@
 		E9381D91204D210200179BF2 /* unit1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unit1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9381D95204D210200179BF2 /* unit1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unit1UITests.swift; sourceTree = "<group>"; };
 		E9381D97204D210200179BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E93ECBE0205F5148007FD30D /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "iOSDevCenters+GIF.swift"; path = "../../../../Downloads/GIF-Swift-master 2/GIF-Swift/iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		E93ECBE2205F9552007FD30D /* GiphyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyTableViewCell.swift; sourceTree = "<group>"; };
 		E93ECBE3205F9552007FD30D /* GiphyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiphyTableViewCell.xib; sourceTree = "<group>"; };
 		E93ECBE6205F9867007FD30D /* GiphyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		E9B8A91E2051390300586E5B /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		E9B8A92120513A1100586E5B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E9B8A92220513A1100586E5B /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		E9BA00412068869D003508EC /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		E9D028A22064AA43000506CE /* Comment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9D028A32064AA43000506CE /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9D028A42064AA43000506CE /* Gif+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gif+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 		E954CE6920576DBF0066DA9C /* GiphyTimeline */ = {
 			isa = PBXGroup;
 			children = (
-				E93ECBE0205F5148007FD30D /* iOSDevCenters+GIF.swift */,
+				E9BA00412068869D003508EC /* iOSDevCenters+GIF.swift */,
 				E971C57A205290C900A0231E /* GiphyTimelineController.swift */,
 				E971C57B205290C900A0231E /* GiphyTimelineController.xib */,
 				E93ECBE2205F9552007FD30D /* GiphyTableViewCell.swift */,
@@ -630,7 +630,6 @@
 				E954CE642057629F0066DA9C /* AutolayoutController.swift in Sources */,
 				E9D028A92064AA43000506CE /* Gif+CoreDataProperties.swift in Sources */,
 				E97F391B204E4D5A0084F7AA /* TableViewCell.swift in Sources */,
-				E93ECBE1205F5148007FD30D /* iOSDevCenters+GIF.swift in Sources */,
 				E9849D002063BB5A00FEE761 /* DataModel.xcdatamodeld in Sources */,
 				E9D028AB2064B1EB000506CE /* NSDate+Extension.swift in Sources */,
 				E9B11022204D4B1400FCAB90 /* ViewController.swift in Sources */,
@@ -640,6 +639,7 @@
 				E985413C205901E6006787C6 /* DescriptionController.swift in Sources */,
 				E9D028A72064AA43000506CE /* Comment+CoreDataProperties.swift in Sources */,
 				E9D028A62064AA43000506CE /* Comment+CoreDataClass.swift in Sources */,
+				E9BA00422068869D003508EC /* iOSDevCenters+GIF.swift in Sources */,
 				E971C57C205290C900A0231E /* GiphyTimelineController.swift in Sources */,
 				E9B8A92320513A1100586E5B /* CollectionViewCell.swift in Sources */,
 				E9B11026204D4F1900FCAB90 /* ViewLabelController.swift in Sources */,
