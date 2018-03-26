@@ -69,10 +69,6 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
                    
                     do
                     {
-                        if let element = self.data.first(where: {$0.key == self.listGIF[index]})
-                        {
-                            cell.imageGiphy.image = element.image
-                        }else{
                             var imgUrl = UIImage.gifImageWithURL(url)
                             print("load \(index)")
                             cell.imageGiphy.clipsToBounds = true
@@ -84,7 +80,6 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
                             self.saveDataToDataBase(element: element)
                             cell.imageGiphy.image = element.image
                             cell.data = element
-                        }
                     }
                     catch
                     {
