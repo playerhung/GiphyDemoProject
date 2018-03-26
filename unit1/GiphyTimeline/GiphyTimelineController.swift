@@ -20,9 +20,10 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
         let cell = tableTimeLineView.dequeueReusableCell(withIdentifier: "GiphyCell") as! GiphyTableViewCell
         if let element = self.data.first(where: {$0.key == self.listGIF[indexPath.row]})
         {
+            cell.data = element
             cell.imageGiphy.image = element.image
         }else{
-            getGIF(cell: cell,index: indexPath.row)
+            getData(cell: cell,index: indexPath.row)
         }
         cell.delegate = self
         return cell
@@ -47,13 +48,14 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
         tableTimeLineView.rowHeight = UITableViewAutomaticDimension
         let nibName = UINib(nibName:"GiphyTableViewCell",bundle:nil)
         tableTimeLineView.register(nibName, forCellReuseIdentifier: "GiphyCell")
+        tableTimeLineView.addSubview(refreshController)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func getGIF(cell: GiphyTableViewCell,index:Int) {
+    func getData(cell: GiphyTableViewCell,index:Int){
         let op = client.gifByID(listGIF[index]) { (response, error) in
             if let url = response?.data?.images?.fixedHeight?.gifUrl {
                 DispatchQueue.main.async {
@@ -71,15 +73,14 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
                     {
                             var imgUrl = UIImage.gifImageWithURL(url)
                             print("load \(index)")
-                            cell.imageGiphy.clipsToBounds = true
-                            cell.imageGiphy.contentMode = UIViewContentMode.scaleAspectFill
                             let ratio = CGFloat(height/width)
                             let scaledHeight = ratio * (cell.frame.size.width-20)
-                            var element = GiphyResponseModel(height: Int16(scaledHeight), width: Int16(width), key: self.listGIF[index], url: url, image: imgUrl!)
-                            self.data.append(element)
-                            self.saveDataToDataBase(element: element)
-                            cell.imageGiphy.image = element.image
-                            cell.data = element
+                            let element = GiphyResponseModel(height: Int16(scaledHeight), width: Int16(width), key:self.listGIF[index], url: url, image: imgUrl!)
+                        self.data.append(element)
+                        self.saveDataToDataBase(element: element)
+                        cell.data = element
+                        cell.imageGiphy.image = element.image
+
                     }
                     catch
                     {
@@ -97,6 +98,18 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
             }
         }
         print("\(Gif.getAllGif().count)")
+    }
+    
+    lazy var refreshController: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    @objc private func refresh() {
+        data = []
+        tableTimeLineView.reloadData()
+        refreshController.endRefreshing()
     }
 }
 extension GiphyTimelineController:ClickComment{

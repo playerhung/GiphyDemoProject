@@ -15,10 +15,13 @@ class GiphyTableViewCell: UITableViewCell {
     @IBOutlet weak var imageGiphy: UIImageView!
     @IBOutlet weak var btnShare: UIButton!
      @IBOutlet weak var heightImageConstraint: NSLayoutConstraint!
-    var delegate : ClickComment?
+    var delegate : ClickComment!
     var data:GiphyResponseModel?
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageGiphy.clipsToBounds = true
+        imageGiphy.contentMode = UIViewContentMode.scaleAspectFill
+//        imageGiphy.image = data?.image
         // Initialization code
     }
 
@@ -30,7 +33,7 @@ class GiphyTableViewCell: UITableViewCell {
     }
     
     @IBAction func openComment(_ sender: Any) {
-        delegate?.acctionCommentClick(model: data!)
+        delegate.acctionCommentClick(model: data!)
     }
     
 }

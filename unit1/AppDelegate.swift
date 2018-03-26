@@ -16,13 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     static var nSManagedObjectContext:NSManagedObjectContext?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        AppDelegate.nSManagedObjectContext = persistentContainer.viewContext
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = ViewController(nibName: "ViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: homeViewController)
         window!.rootViewController = nav
         window!.makeKeyAndVisible()
-        AppDelegate.nSManagedObjectContext = persistentContainer.viewContext
         return true
     }
 
