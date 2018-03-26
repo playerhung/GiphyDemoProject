@@ -18,7 +18,12 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableTimeLineView.dequeueReusableCell(withIdentifier: "GiphyCell") as! GiphyTableViewCell
+        if let element = self.data.first(where: {$0.key == self.listGIF[indexPath.row]})
+        {
+            cell.imageGiphy.image = element.image
+        }else{
             getGIF(cell: cell,index: indexPath.row)
+        }
         cell.delegate = self
         return cell
     }
