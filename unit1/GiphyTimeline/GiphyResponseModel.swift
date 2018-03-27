@@ -14,11 +14,11 @@ struct  GiphyResponseModel{
     var key: String?
     var url: String?
     var image : UIImage?
-    init(height:Int16,width:Int16,key:String,url:String,image:UIImage) {
+    init(height:Int16,width:Int16,key:String,url:String,image:UIImage?) {
         self.height = height
         self.width = width
         self.url = url
         self.key = key
-        self.image = image
+        self.image = nil
     }
 }

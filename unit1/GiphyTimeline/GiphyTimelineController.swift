@@ -7,28 +7,33 @@
 
 import UIKit
 import GiphyCoreSDK
+import Kingfisher
 
 class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var data : [GiphyResponseModel] = []
     var offset = 0
     var isLoading = false
 
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableTimeLineView.dequeueReusableCell(withIdentifier: "GiphyCell") as! GiphyTableViewCell
-        if let element = self.data.first(where: {$0.key == data[indexPath.row].key})
-        {
-            cell.data = element
-            cell.imageGiphy.image = element.image
-        }
-//        }else{
-//            getData(cell: cell,index: indexPath.row)
-//        }
+        let cell = self.tableTimeLineView.dequeueReusableCell(withIdentifier: "GiphyCell") as! GiphyTableViewCell
         cell.delegate = self
+        
+        let element = self.data[indexPath.row]
+        if let url = element.url{
+            cell.data = element
+            let url = URL(string: element.url!)
+            cell.imageGiphy.kf.setImage(with: url)
+        }else{
+            cell.imageGiphy.image = nil
+        }
         return cell
     }
     
@@ -54,11 +59,12 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
     let client = GPHClient(apiKey: "1dMKOZZdiHLLuXyIcPXc1uglGqtrjuqZ")
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicatorView.hidesWhenStopped = true
         getData()
         tableTimeLineView.delegate = self
         tableTimeLineView.dataSource = self
         tableTimeLineView.estimatedRowHeight = 200
-        tableTimeLineView.rowHeight = UITableViewAutomaticDimension
+//        tableTimeLineView.rowHeight = UITableViewAutomaticDimension
         let nibName = UINib(nibName:"GiphyTableViewCell",bundle:nil)
         tableTimeLineView.register(nibName, forCellReuseIdentifier: "GiphyCell")
         tableTimeLineView.addSubview(refreshController)
@@ -70,8 +76,11 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
     }
     func getData(){
         let cell = GiphyTableViewCell()
-        let lista = client.search("cute girl", media: GPHMediaType.gif, offset: offset, limit: 7, rating: GPHRatingType.ratedPG13, lang: GPHLanguageType.english, pingbackUserId: "") { (response, error) in
+        indicatorView.startAnimating()
+//        var subData:[GiphyResponseModel] = []
+        let lista = client.search("cute girl", media: GPHMediaType.gif, offset: offset, limit: 10, rating: GPHRatingType.ratedPG13, lang: GPHLanguageType.english, pingbackUserId: "") { (response, error) in
             if let listData = response?.data{
+            print("load successful)")
             DispatchQueue.main.async {
             for imageInfo in listData {
                 var height = 0.0
@@ -88,21 +97,23 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
                 {
                     let url = imageInfo.images?.fixedHeight?.gifUrl!
                     
-                    var imgUrl = UIImage.gifImageWithURL(url!)
-                    print("load successful)")
+//                    var imgUrl = UIImage.gifImageWithURL(url!)
+                    
                     let ratio = CGFloat(height/width)
                     let scaledHeight = ratio * (cell.frame.size.width-20)
-                    let element = GiphyResponseModel(height: Int16(scaledHeight), width: Int16(width), key:imageInfo.id, url: url!, image: imgUrl!)
+                    let element = GiphyResponseModel(height: Int16(scaledHeight), width: Int16(width), key:imageInfo.id, url: url!, image: nil)
                     self.saveDataIfNonExist(element:element)
                     self.saveDataToDataBase(element: element)
 //                    cell.data = element
 //                    cell.imageGiphy.image = element.image
                     
-                    self.tableTimeLineView.reloadData()
-                    self.isLoading = false
+                    
                 }
               }
-                
+                print("reload data)")
+                self.tableTimeLineView.reloadData()
+                self.indicatorView.stopAnimating()
+                self.isLoading = false
             }
             }
         }
@@ -167,6 +178,7 @@ class GiphyTimelineController: UIViewController, UITableViewDelegate,UITableView
     
     @objc private func refresh() {
         data = []
+        offset = 0
         getData()
         refreshController.endRefreshing()
     }

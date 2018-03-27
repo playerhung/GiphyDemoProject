@@ -10,6 +10,7 @@ import UIKit
 import GiphyCoreSDK
 class GiphyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     @IBOutlet weak var btnComment: UIButton!
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var imageGiphy: UIImageView!
@@ -21,6 +22,7 @@ class GiphyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         imageGiphy.clipsToBounds = true
         imageGiphy.contentMode = UIViewContentMode.scaleAspectFill
+        indicatorLoading.startAnimating()
 //        imageGiphy.image = data?.image
         // Initialization code
     }

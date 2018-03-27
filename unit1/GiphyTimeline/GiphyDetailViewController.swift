@@ -20,7 +20,6 @@ class GiphyDetailViewController: UIViewController {
     @IBOutlet weak var stackCommentView: UIStackView!
     @IBOutlet weak var commentText: UITextField!
     @IBAction func btnSave(_ sender: Any) {
-        let imgView:UIImageView = UIImageView(image: data?.image)
         let labelComment: UILabel = UILabel()
         labelComment.text = commentText.text
         labelComment.backgroundColor = UIColor.red
@@ -35,8 +34,9 @@ class GiphyDetailViewController: UIViewController {
         super.viewDidLoad()
         heightImage.constant = CGFloat((data?.height)!)
         imageGiphy.bounds.size.width = CGFloat((data?.width)!)
-        let imgUrl = UIImage.gifImageWithURL((data?.url)!)
-        imageGiphy.image = imgUrl
+        let url = URL(string: (data?.url!)!)
+        imageGiphy.kf.setImage(with: url)
+
         // Do any additional setup after loading the view.
     }
 

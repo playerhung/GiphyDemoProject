@@ -9,6 +9,8 @@ target 'unit1' do
  pod 'GiphyCoreSDK'
  pod 'RxSwift',    '~> 4.0'
  pod 'RxCocoa',    '~> 4.0'
+ pod 'Kingfisher', '~> 4.0'
+
   target 'unit1Tests' do
     inherit! :search_paths
     # Pods for testing
